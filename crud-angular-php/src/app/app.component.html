@@ -1,0 +1,67 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Crud</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['/']" routerLinkActive="active">Home</a></li>
+        <li><a [routerLink]="['/person']" *ngIf="enable" routerLinkActive="active">Person</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="enable != null">
+        <li><a [routerLink]="['/login']" *ngIf="!enable" routerLinkActive="active">Login</a></li>
+        <li><a class="link-nav-custom" *ngIf="enable" routerLinkActive="active" (click)="showModalLogout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="modalLogoff" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Question</h4>
+            </div>
+            <div class="modal-body">
+              <p>Do you want logoff?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary col-md-2 pull-right" (click)="onLogout()">Ok</button>
+              <button type="button" class="btn btn-default col-md-2 pull-right" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <app-alert [alert]="alert"></app-alert>
+    </div>
+    <div class="col-md-12">
+      <app-title [title]="title"></app-title>
+      <hr>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <footer>
+        <hr>
+        <p class="span-year">@2019</p>
+      </footer>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="error-list" *ngIf="errors.length > 0">
+  <p class="label-list">{{ errors.length }} problems were detected:</p>
+  <ul *ngFor="let error of errors">
+    <li>{{ error }}</li>
+  </ul>
+</div>
+
+<style>
+  .error-list {
+    border: 2px solid red;
+    color: red;
+    border-radius: 4px;
+    background-color: lightgoldenrodyellow;
+  }
+
+  .label-list {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+  }
+</style>

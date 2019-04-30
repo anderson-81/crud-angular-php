@@ -1,0 +1,15 @@
+.text-center {
+    text-align: center;
+}
+
+th {
+    font-weight: bold;
+}
+
+.input-border {
+    border: 2px solid black;
+}
+
+.margin-top-30{
+    margin-top: 30px;
+}

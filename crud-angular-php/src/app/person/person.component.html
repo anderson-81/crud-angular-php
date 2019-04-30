@@ -1,0 +1,44 @@
+<div class="col-md-offset-3 col-md-6 col-md-offset-3">
+  <div class="row">
+    <form action="POST" (ngSubmit)="onSubmitList()">
+      <div class="input-group">
+        <input type="text" class="form-control input-border" [disabled]="!enable" name="search" [(ngModel)]="search"
+          placeholder="Search for name...">
+        <span class="input-group-btn">
+          <button class="btn btn-info" [disabled]="!enable" type="submit">Search!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="row">
+    <table class="table table-hover" id="tablePeople">
+      <thead>
+        <tr>
+          <th class="text-center">Id</th>
+          <th>Name</th>
+          <th class="text-center">Birthday</th>
+          <th class="text-center">Select</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- *ngFor="let person of people" -->
+        <tr *ngFor="let person of people | paginate: { itemsPerPage: 7, currentPage: p }">
+          <td class="text-center">{{ person.CODIGO }}</td>
+          <td>{{ person.NOME }}</td>
+          <td class="text-center">{{ person.DATANASC }}</td>
+          <td class="text-center"><a class="btn btn-info"
+              [routerLink]="['/person', 'details', person.CODIGO]">Select</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls style="font-size: 20px; font-weight: bold;" class="pull-right font-size" (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <div class="row margin-top-30">
+    <button type="button" class="btn btn-success pull-right col-md-2"
+      (click)="redirectCreate()">Create</button>
+  </div>
+</div>
