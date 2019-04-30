@@ -15,7 +15,6 @@
 - "http-proxy-middleware": "^0.19.1",
 - "express": "^4.16.4"
 
-
 ## 3 - Server side (php-crud-api) 
 
 ### 3.1 - Description:
